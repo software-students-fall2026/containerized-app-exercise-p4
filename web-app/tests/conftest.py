@@ -1,3 +1,5 @@
+"""Shared fixtures for web application tests."""
+
 # pylint: disable=redefined-outer-name
 
 import importlib
