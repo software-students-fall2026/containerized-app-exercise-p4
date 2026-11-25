@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prediction Dashboard</title>
+</head>
+<body>
+  <h1>Prediction Dashboard</h1>
+  <p>Mock data is used to verify the Flask and MongoDB connection.</p>
+
+  {% if error %}
+    <p role="alert">{{ error }}</p>
+
+  {% elif records %}
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Label</th>
+          <th scope="col">Confidence</th>
+          <th scope="col">Captured At</th>
+          <th scope="col">Source</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for record in records %}
+          <tr>
+            <td>{{ record.label }}</td>
+            <td>{{ (record.confidence * 100) | round(1) }}%</td>
+            <td>{{ record.captured_at }}</td>
+            <td>{{ record.source }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  {% else %}
+    <p>Database connection successful. No records found.</p>
+    <p>Run the seed script to add mock data.</p>
+  {% endif %}
+</body>
+</html>
