@@ -1,0 +1,9 @@
+[tool.pylint.main]
+ignore = [
+    "app.py",
+    "conftest.py",
+    "test_app.py",
+]
+
+[tool.black]
+extend-exclude = '/(app\.py|tests/conftest\.py|tests/test_app\.py)$'
