@@ -6,8 +6,4 @@ ignore = [
 ]
 
 [tool.black]
-extend-exclude = [
-    "app.py",
-    "conftest.py",
-    "test_app.py",
-]
+extend-exclude = '/(app\.py|tests/conftest\.py|tests/test_app\.py)$'
